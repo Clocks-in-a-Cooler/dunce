@@ -1,5 +1,7 @@
 #pragma once
 
+#define DGFX_VERSION 1.0
+
 #include <graphx.h>
 #include <tice.h>
 #include <stdlib.h>

@@ -1,5 +1,7 @@
 #pragma once
 
+#define DKEYS_VERSION 1.1
+
 #include <keypadc.h>
 #include <tice.h>
 #include <stdlib.h>
@@ -30,7 +32,7 @@ short dkeys_check(kb_lkey_t kb_lcode);
 
 #define dkeys_CheckPressed(kb_l_code) dkeys_check(kb_l_code) & DKEYS_PRESSED
 #define dkeys_CheckHeld(kb_l_code) dkeys_check(kb_l_code) & DKEYS_HELD
-#define dkeys_CHeckReleased(kb_l_code) dkeys_check(kb_l_code) & DKEYS_RELEASED
+#define dkeys_CheckReleased(kb_l_code) dkeys_check(kb_l_code) & DKEYS_RELEASED
 
 // assumes that update_keypad() is already called. you have been warned!
 kb_lkey_t dkeys_get_next();
@@ -57,10 +59,10 @@ extern char DKEYS_FR_RESOL[];
 extern char DKEYS_FR_WINDOW[];
 extern char* DKEYS_FR_NAMES[];
 
-enum DKEYS_LANGUAGE {
+typedef enum {
     DKEYS_EN = 0,
     DKEYS_FR,
-};
+} Dkeys_language;
 
 #define dkeys_get_name(kb_l_code) DKEYS_NAMES[kb_lkey_t_to_sk_key_t(kb_l_code)]
 #define dkeys_GetName(kb_l_code) DKEYS_NAMES[kb_lkey_t_to_sk_key_t(kb_l_code)]
